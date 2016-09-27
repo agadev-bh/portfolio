@@ -1,0 +1,205 @@
+//output: home.html
+doctype html(lang="pt-br")
+html
+  head
+    title Portfolio Augusto
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(charset="utf-8")
+    link(rel="stylesheet" href="css/libs/bootstrap-4.0.0-alpha.2/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+    link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
+    link(rel="stylesheet" href="css/main.min.css")
+    
+    script(src="js/jquery-3.0.0.min.js")
+    
+    script(src="css/libs/bootstrap-4.0.0-alpha.2/js/dist/modal.js")
+    script(src="css/libs/bootstrap-4.0.0-alpha.2/js/dist/util.js")
+    
+    //script(type="text/javascript" src="js/jquery.nicescroll.min.js")
+    script(type="text/javascript" src="js/jquery.nicescroll.js")
+
+    //script.
+      //- $(document).ready(
+      //-   function() {
+      //-     $("html").niceScroll();
+      //-   }
+      //- );
+    
+    script.
+      $( document ).ready(function() {
+        
+        //$("html").niceScroll();
+        
+        $(".main-words").hide(0).delay(500).fadeIn(800);
+        
+        $('.modal-carousel').slick({
+          autoplay: true,
+          autoplaySpeed: 2300,
+          infinite: true,
+          fade: true
+        });
+        
+        $(window).scroll(function(event){
+            var y = $(this).scrollTop();
+            var w = $( window ).width();
+
+            if (y < 300 && w >= 600) {
+              $('#homeMenu').addClass('scroll-add-color-in');
+              $('#skillsMenu').removeClass('scroll-add-color-in');
+            }
+            if(y >= 300  && y < 900 && w >= 600){
+              $('#homeMenu').removeClass('scroll-add-color-in');
+              $('#skillsMenu').addClass('scroll-add-color-in');
+              $('#worksMenu').removeClass('scroll-add-color-in');
+            }
+            else if (y > 900 && y < 1500 && w >= 600) {
+              $('#skillsMenu').removeClass('scroll-add-color-in');
+              $('#worksMenu').addClass('scroll-add-color-in');
+              $('#contatoMenu').removeClass('scroll-add-color-in');
+            }
+            else if (y > 1500 && y < 1800 && w >= 600) {
+              $('#worksMenu').removeClass('scroll-add-color-in');
+              $('#contatoMenu').addClass('scroll-add-color-in');
+            }          
+          });
+      
+        });
+      
+      $(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+    
+    
+
+
+  body
+    .container-fluid#fluid      
+      header
+        .row.header-img
+          .col-md-12.main-header#home1
+            .nav
+              ul
+                li 
+                  a(href="#home1" id="homeMenu") home
+                li 
+                  a(href="#skills" id="skillsMenu") habilidades
+                li 
+                  a(href="#works" id="worksMenu") works
+                li 
+                  a(href="#contato" id="contatoMenu") contato
+            .main-words 
+              span Destaque-se. 
+              span Analise.
+              span Cresça.
+            
+                  
+      section#skills
+        .row.skills-bg
+          .col-md-12.section-titles
+              h1 Diversas habilidades para atender a sua necessidade
+              
+        .row.skills-content.skills-bg
+          .col-md-6.skill-main-cols
+            .skills-cols
+              h4 Desenvolvimento Web
+              img(src="img/browser.png")
+              p Prototipação, UX, Design Thinking, criação de websites estáticos e dinâmicos, conversão PSD > html
+          .col-md-6.skill-main-cols
+            .skills-cols
+              h4 Business Intelligence
+              img(src="img/presentation-1.png")
+              p Levantamento de requisitos, prototipação, desenvolvimento etl, criação de visualizações
+      
+      section#modal
+        .modal.fade.modalrguedes#modalrguedes(tabindex="-1" role="dialog" aria-labelledby="modalrguedes" aria-hidden="true")
+          .modal-dialog.modal-lg
+            .modal-content
+              p Em 2014 foi desenvolvido um site para divulgação da marca Renata Guedes. Nesse site foram criadas 5 páginas exibindo o trabalho da Makeup Artist, sendo uma delas, para envio de e-mails. 
+              .modal-carousel
+                img(src="img/works/rg1.png")
+                img(src="img/works/rg2.png")
+                img(src="img/works/rg3.png")
+                img(src="img/works/rg4.png")
+                img(src="img/works/rg5.png")
+                
+        .modal.fade.modalcmiranda#modalcmiranda(tabindex="-1" role="dialog" aria-labelledby="modalcmiranda" aria-hidden="true")
+          .modal-dialog.modal-lg
+            .modal-content
+              p Em 2015 foi desenvolvido um site para divulgação da marca Carol Miranda Calçados. As imagens do site eram buscadas automaticamente do Instagram, pela hashtag #amoraoalcancedospes. 
+              .modal-cm
+                img(src="img/works/cm1.png")
+                
+      section#works
+        .row
+          .col-md-12.works-bg
+            .section-titles
+              h1 Works
+        
+        .row.works-content.works-bg
+          .col-md-4
+            .card
+              .card-block
+                h4.card-title Renata Guedes
+                h6.card-subtitle.text-muted Desenvolvimento Web
+              img(src="img/works/rg-thumbnail.png")
+              .card-block
+                p.card-text Site de divulgação de marca
+                a(href="#" data-toggle="modal" data-target="#modalrguedes").card-link Ver
+                //a(href="renataguedes.html").card-link Ver
+          .col-md-4
+            .card
+              .card-block
+                h4.card-title Carol Miranda Calçados
+                h6.card-subtitle.text-muted Desenvolvimento Web
+              img(src="img/works/cm-thumbnail.png")
+              .card-block
+                p.card-text Site de divulgação de marca
+                a(href="#" data-toggle="modal" data-target="#modalcmiranda").card-link Ver
+          .col-md-4
+            .card
+              .card-block
+                h4.card-title Onde Ensaiar
+                h6.card-subtitle.text-muted Aplicativo
+              //img(src="http://placehold.it/420x140")
+              .card-block
+                p.card-text Em breve...
+                a(href="#").card-link Ver
+      
+        
+      section#contato
+        .row
+          .col-md-12
+            .section-titles
+              h1 Fale comigo
+        .row.footer-info
+          .col-md-4
+            div.footer-site
+              img(src="img/icons/email.png")
+            div.footer-subtitles
+              h4 agadevbh@gmail.com
+          .col-md-4
+            div.footer-site
+              img(src="img/icons/linkedin2.png")          
+            div.footer-subtitles
+              h4 
+                a(href="https://br.linkedin.com/in/agadev") https://br.linkedin.com/in/agadev
+          .col-md-4
+            div.footer-site
+              img(src="img/icons/smart-icon4.png")          
+            div.footer-subtitles
+              h4 +55 31 99148-9805
+              
+    script(type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")        
+    

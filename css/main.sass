@@ -1,0 +1,170 @@
+//@import "libs/bootstrap-4.0.0-alpha.2/scss/bootstrap.scss"
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script:400,700)
+
+$font-main: Oleo Script, cursive
+$subtitle-padding: 15px
+$section-title-padding: 130px 0px 50px 0px
+
+.header-img
+  background-image: url('../img/header.jpeg')
+  background-size: cover
+  background-repeat:no-repeat
+  height: 100%
+
+.main-header
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+
+.nav
+  z-index: 99
+  position: fixed
+  width: 100%
+  text-align: center
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 50px
+
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+  li
+    display: inline-block
+
+  a
+    display: block
+    padding: 6px 12px
+    text-decoration: none
+    font-family: $font-main
+    font-size: 40px
+    color: #11999E
+
+  a:hover
+    color: #EB586F
+    transition: color 0.5s ease
+
+.main-words
+  padding-top: 80px
+  height: 400px
+  display: flex
+  justify-content: center
+  align-items: center
+  span
+    font-family: $font-main
+    font-weight: bold
+    font-size: 60px
+    padding: 25px
+
+.section-titles
+  padding: $section-title-padding
+  text-align: center
+
+.skills-content
+  padding-top: 50px
+  padding-bottom: 50px
+
+.skill-main-cols
+  padding-top: 10px
+  padding-bottom: 10px
+
+.skills-bg
+  background: linear-gradient(to left, #AECCC6,#BBE9DB)
+
+.skill-main-cols
+    display: flex
+    justify-content: center
+      //background-color: #364f6b
+    .skills-cols
+      display: flex
+      align-items: center
+      flex-direction: column
+      padding: 0px 60px 0px 60px
+      img
+        padding-top: $subtitle-padding
+        padding-bottom: $subtitle-padding
+
+
+.works-bg
+  background: linear-gradient(to left, #AECCC6,#BBE9DB)
+.works-content
+  padding-bottom: 90px
+
+.card
+  img
+    width: 100%
+
+body
+  .modal-open
+    overflow: visible
+
+
+.footer-info
+  padding-bottom: 200px
+  text-align: center
+  .footer-subtitles
+    padding-top: $subtitle-padding
+
+.footer-site
+  display: flex
+  justify-content: center
+  img
+    width: 200px
+    height: 200px
+
+// .card-block
+//   img
+//     @extend .img-fluid
+.modal-carousel
+  img
+    display: block
+    max-width: 100%
+    height: auto
+
+.modal-content
+  p
+    padding-left: 5px
+    padding-top: 5px
+
+.modal-cm
+  img
+    max-width: 100%
+
+.scroll-add-color-in
+  text-decoration: none
+  color: #EB586F !important
+  transition: color 0.5s ease
+
+@media screen and (max-width: 600px)
+  .nav
+    ul
+      background-color: #40514E
+      opacity: 0.88
+    a
+      color: #E4F9F5
+      font-size: 18px
+
+  .main-words
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    span
+      font-size: 30px
+      padding: 5px
+
+  .footer-info
+    div
+      padding: 10 0 10 0
+
+  .footer-subtitles
+    h4
+      font-size: 20px
+
+  .footer-site
+    img
+      width: 100px
+      height: 100px
